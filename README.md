@@ -4,7 +4,7 @@ Reusable Spring Boot parent POM with shared Maven configuration.
 
 ## What's included
 
-- **Spring Boot 4.0.2** as parent
+- **Spring Boot** as parent (version inherited automatically via `${project.parent.version}`)
 - **Java 21**
 - **Maven Enforcer Plugin** – enforces Maven >= 3.6.3
 - **Versions Maven Plugin** – displays dependency and plugin updates during compile (ignores alpha/beta/rc versions)
@@ -17,7 +17,7 @@ Add this as parent in your project's `pom.xml`:
 <parent>
     <groupId>de.peterspace</groupId>
     <artifactId>peterspace-springboot-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.parent.version}</version>
 </parent>
 ```
 
