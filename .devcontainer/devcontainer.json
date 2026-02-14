@@ -1,7 +1,9 @@
 {
   "name": "Java",
   "image": "mcr.microsoft.com/devcontainers/java:21-bookworm",
-  "forwardPorts": [8080],
+  "forwardPorts": [
+    8080
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,33 +15,21 @@
         "/tmp/runonsave.vsix"
       ],
       "settings": {
-        "editor.formatOnSave": false,
-        "editor.codeActionsOnSave": {
-          "source.fixAll": "never",
-          "source.organizeImports": "never"
-        },
         "emeraldwalk.runonsave": {
           "commands": [
             {
               "cmd": "bash -ic 'mvnd spotless:apply'"
             }
           ]
-        },
-        "java.compile.nullAnalysis.mode": "disabled",
-        "java.configuration.updateBuildConfiguration": "automatic",
-        "java.debug.settings.hotCodeReplace": "never"
+        }
       }
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers-extra/features/mvnd-sdkman:2": {}
   },
   "mounts": [
     "type=volume,source=maven-cache,target=/home/vscode/.m2"
   ],
-  "containerEnv": {
-    "DISPLAY": "host.docker.internal:0"
-  },
   "postCreateCommand": "sudo chmod +x .devcontainer/*.sh; bash -i -c '.devcontainer/post-create.sh'"
 }
